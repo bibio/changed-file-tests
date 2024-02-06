@@ -16,7 +16,7 @@ jobs:
       - uses: tj-actions/changed-files@v42
         id: changed
         with:
-          since_last_remote_commit: true
+          since_last_remote_commit: ${{ github.event_name == 'workflow_dispatch' && 'true' || 'false' }}
           files: |
             README.md
             tests/**
