@@ -24,3 +24,7 @@ jobs:
       - if: steps.changed.outputs.any_modified == 'true'
         run: |
           echo "Files changed"
+
+      - if: success()
+        run: |
+          echo "OK"
