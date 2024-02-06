@@ -13,6 +13,7 @@ jobs:
       - uses: tj-actions/changed-files@v42
         id: changed
         with:
+          since_last_remote_commit: true
           files: |
             README.md
             tests/**
