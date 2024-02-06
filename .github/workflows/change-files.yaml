@@ -1,0 +1,22 @@
+name: changed files workflow tests
+
+on:
+  workflow_dispatch:
+
+jobs:
+  change-files:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: tj-actions/changed-files@v42
+        id: changed
+        with:
+          files: |
+            README.md
+            tests/**
+
+      - if: steps.changed.outputs.any_modified == 'true'
+        run: |
+          echo "Files changed"
