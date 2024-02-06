@@ -25,6 +25,6 @@ jobs:
         run: |
           echo "Files changed"
 
-      - if: success()
+      - if: !cancelled()
         run: |
           echo "OK"
